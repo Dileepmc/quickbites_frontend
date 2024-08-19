@@ -5,7 +5,7 @@ import { selectCartCount } from '../features/cartslice';
 import logo from "../Assets/dish.png";
 import menu from "../Assets/menu.png";
 import close from "../Assets/close.png";
-import cartIcon from '../Assets/new cart.png';
+import cartIcon from '../Assets/Cart.png';
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube, AiOutlineWhatsApp } from 'react-icons/ai';
 
 function RootLayout(props) {

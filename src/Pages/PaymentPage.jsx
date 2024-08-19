@@ -23,7 +23,6 @@ function PaymentPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Here you would handle form submission, e.g., sending the data to your server
         console.log('Form submitted:', formData);
     };
 

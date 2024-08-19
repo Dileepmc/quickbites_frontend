@@ -25,11 +25,10 @@ function UserDetails(props) {
         const mobilenumber = form["mobileNumber"].value
         const alternativephonenumber = form["altPhoneNumber"].value
 
-        axios.post("http://localhost:3000/userdetails", { firstname, lastname, email, location, currentaddress, mobilenumber, alternativephonenumber })
+        axios.post(`${import.meta.env.VITE_API_URL}/userdetails`, { firstname, lastname, email, location, currentaddress, mobilenumber, alternativephonenumber })
             .then(data => {
                 const datas = (data)
 
-                // Reset the form fields
                 setFormData({
                     firstName: '',
                     lastName: '',
@@ -39,10 +38,8 @@ function UserDetails(props) {
                     mobileNumber: '',
                     altPhoneNumber: '',
                 });
-                // Display saved message
                 setSavedMessage('Changes saved successfully.');
 
-                // Clear saved message after 3 seconds
                 setTimeout(() => {
                     setSavedMessage('');
                 }, 3000);

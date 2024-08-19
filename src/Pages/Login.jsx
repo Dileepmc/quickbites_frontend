@@ -19,7 +19,7 @@ function LoginPage(props) {
         const email = form['email'].value
         const password = form['password'].value
 
-        axios.post('http://localhost:3000/users/login', { email, password }, { withCredentials: true })
+        axios.post(`${import.meta.env.VITE_API_URL}/users/login`, { email, password }, { withCredentials: true })
             .then(data => {
                 const user = (data.data.user)
                 console.log(user)

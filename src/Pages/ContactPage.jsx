@@ -22,7 +22,7 @@ function ContactPage(props) {
     const handleSend = (e) => {
         e.preventDefault();
 
-        axios.post('http://localhost:3000/contact', formState)
+        axios.post(`${import.meta.env.VITE_API_URL}/contact`, formState)
             .then(response => {
                 setResponseMessage('Message sent successfully!');
                 console.log(response.data);

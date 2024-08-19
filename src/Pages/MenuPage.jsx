@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export async function loader() {
     try {
-        const res = await axios.get('http://localhost:3000/menus');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/menus`);
         const data = res.data;
         return { data };
     } catch (error) {
@@ -28,7 +28,7 @@ function MenuPage(props) {
     );
 
     useEffect(() => {
-        axios.post('http://localhost:3000/users/verify', {}, { withCredentials: true })
+        axios.post(`${import.meta.env.VITE_API_URL}/users/verify`, {}, { withCredentials: true })
             .then((data) => {
                 console.log("logged in");
             })
@@ -41,7 +41,7 @@ function MenuPage(props) {
     const handleAddToCart = async (menu) => {
         try {
             const userId = '65d6eb632967740acb27132a'; // Replace with actual user ID
-            await axios.post('http://localhost:3000/cart/add', {
+            await axios.post(`${import.meta.env.VITE_API_URL}/cart/add`, {
                 userId,
                 menuId: menu._id,
                 quantity: 1,

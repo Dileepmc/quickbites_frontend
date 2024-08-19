@@ -14,8 +14,10 @@ function CartPage() {
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const userId = '65d6eb632967740acb27132a';  
-                const res = await axios.get(`http://localhost:3000/cart/${userId}`);
+                const userId = '65d6eb632967740acb27132a';
+                // const res = await axios.get(`http://localhost:3000/cart/${userId}`);
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/cart/${userId}`);
+
                 dispatch(setCartItems(res.data.items));
             } catch (error) {
                 console.error('Error fetching cart data:', error);
@@ -27,8 +29,8 @@ function CartPage() {
 
     const handleRemoveFromCart = async (itemId) => {
         try {
-            const userId = '65d6eb632967740acb27132a'; 
-            await axios.delete(`http://localhost:3000/cart/delete/${itemId}`, { data: { userId } });
+            const userId = '65d6eb632967740acb27132a';
+            await axios.delete(`${import.meta.env.VITE_API_URL}/cart/delete/${itemId}`, { data: { userId } });
             dispatch(removeItem({ id: itemId }));
             toast.success('Item removed from cart successfully!');
         } catch (err) {
